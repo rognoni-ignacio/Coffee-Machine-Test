@@ -11,19 +11,18 @@ namespace CoffeeMachine.Controllers
 {
     public class CoffeeController : Controller
     {
+        private ICoffee _logic;
 
-        private readonly CoffeeLogic _logic;
-
-        public CoffeeController()
+        public CoffeeController(ICoffee coffee)
         {
-            _logic = new CoffeeLogic();
+            this._logic = coffee;
         }
 
         // GET: /Coffee
         [HttpGet]
         public IActionResult Index()
         {
-            List<CoffeeModel> coffees = _logic.GetCoffees().Select(c => MapTo(c)).ToList();
+            List<CoffeeModel> coffees = _logic.GetAllCoffees().Select(c => MapTo(c)).ToList();
             return View(coffees);
         }
 
@@ -59,7 +58,7 @@ namespace CoffeeMachine.Controllers
                 coffee.UseOwnMug = coffeeModel.UseOwnMug;
                 coffee.DateOrdered = DateTime.Now;
 
-                _logic.CreateNewCoffe(coffee);
+                _logic.CreateCoffee(coffee);
 
                 return RedirectToAction(nameof(Index));
             }

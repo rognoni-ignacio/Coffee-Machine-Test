@@ -7,37 +7,41 @@
 <div class="container">
     <h1>Beverages</h1>
     <a asp-action="Create" class="btn btn-primary">Create new beverage</a>
-    <hr>
-    <h3>Last beverages ordererd</h3>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Type)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.SpoonsOfSugar)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.UseOwnMug)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model) {
+    @if(Model.Any())
+    {
+        <hr>
+        <h3>Last beverages ordererd</h3>
+        <table class="table">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Type)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.SpoonsOfSugar)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.UseOwnMug)
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SpoonsOfSugar)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UseOwnMug)
+                    </th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SpoonsOfSugar)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UseOwnMug)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
 </div>
