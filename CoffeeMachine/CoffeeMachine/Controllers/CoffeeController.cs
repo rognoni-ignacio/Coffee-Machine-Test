@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using CoffeeMachine.Models;
 using Microsoft.AspNetCore.Mvc;
-using BusinessLogic;
 using Entities;
 
 namespace CoffeeMachine.Controllers
