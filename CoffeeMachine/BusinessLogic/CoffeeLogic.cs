@@ -25,7 +25,7 @@ namespace BusinessLogic
 
         public List<Coffee> GetCoffees()
         {
-            return _dataAccess.GetAllCoffees().ToList();
+            return _dataAccess.GetAllCoffees().OrderByDescending(c => c.DateOrdered).ToList();
         }
 
         public Coffee GetCoffee(int id)

@@ -7,6 +7,7 @@ namespace Entities
         public CoffeeType Type { get; set; }
         public int SpoonsOfSugar { get; set; }
         public bool UseOwnMug { get; set; }
+        public DateTime DateOrdered { get; set; }
 
         public Coffee(CoffeeType type, int spoonsOfSugar, bool useOwnMug)
         {

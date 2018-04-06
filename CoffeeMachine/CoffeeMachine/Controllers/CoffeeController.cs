@@ -48,9 +48,22 @@ namespace CoffeeMachine.Controllers
         // POST: /Coffee/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(CoffeeModel coffee)
+        public IActionResult Create([Bind("Type,SpoonsOfSugar,UseOwnMug")] CoffeeModel coffeeModel)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                //Mapping model with the Entity
+                Coffee coffee = new Coffee();
+                coffee.Type = (Entities.CoffeeType)coffeeModel.Type;
+                coffee.SpoonsOfSugar = coffeeModel.SpoonsOfSugar;
+                coffee.UseOwnMug = coffeeModel.UseOwnMug;
+                coffee.DateOrdered = DateTime.Now;
+
+                _logic.CreateNewCoffe(coffee);
+
+                return RedirectToAction(nameof(Index));
+            }
+            return View(coffeeModel);
         }
     }
 }

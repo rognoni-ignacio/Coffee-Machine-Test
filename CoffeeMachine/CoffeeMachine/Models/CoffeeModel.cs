@@ -5,10 +5,14 @@ namespace CoffeeMachine.Models
 {
     public class CoffeeModel
     {
+        [Required]
         [Display(Name ="Beverage Type")]
         public CoffeeType Type { get; set; }
+
+        [Required]
         [Display(Name = "Spoons of sugar")]
         public int SpoonsOfSugar { get; set; }
+
         [Display(Name = "Using your own mug?")]
         public bool UseOwnMug { get; set; }
 
