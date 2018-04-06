@@ -9,9 +9,35 @@
     <a href="#" class="btn btn-primary">Create new beverage</a>
     <hr>
     <h3>Last beverages ordererd</h3>
-    <ul>
-        <li>Beverage 1</li>
-        <li>Beverage 2</li>
-        <li>Beverage 3</li>
-    </ul>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SpoonsOfSugar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UseOwnMug)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SpoonsOfSugar)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UseOwnMug)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

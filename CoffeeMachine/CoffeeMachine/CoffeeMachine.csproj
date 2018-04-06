@@ -18,4 +18,7 @@
   <ItemGroup>
     <Folder Include="Views\Coffee\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj" />
+  </ItemGroup>
 </Project>
