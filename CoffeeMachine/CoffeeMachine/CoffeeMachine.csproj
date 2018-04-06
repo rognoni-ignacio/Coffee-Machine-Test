@@ -15,4 +15,7 @@
   <ItemGroup>
     <Content Remove="Views\Home\About.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Coffee\" />
+  </ItemGroup>
 </Project>
