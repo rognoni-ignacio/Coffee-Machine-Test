@@ -52,7 +52,18 @@ namespace CoffeeMachine.Controllers
             return View(coffeeModel);
         }
 
+        [HttpGet]
+        public IActionResult RepeatSelection(Models.CoffeeType type, int sugar, bool ownMug)
+        {
+            CoffeeModel model = new CoffeeModel();
+            model.Type = type;
+            model.SpoonsOfSugar = sugar;
+            model.UseOwnMug = ownMug;
+            return View("Create", model);
+        }
+
         #region Mappers
+        // Map a Domain Entity with a MVC Model
 
         private CoffeeModel MapTo(Coffee c)
         {
@@ -68,6 +79,7 @@ namespace CoffeeMachine.Controllers
         #endregion
 
         #region API
+        // Example of how to use an API with .NET Core controllers
 
         [HttpGet("api/GetAllCoffee")]
         public IActionResult GetAllCoffee()

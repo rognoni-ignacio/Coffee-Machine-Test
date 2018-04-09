@@ -24,6 +24,7 @@
                     <th>
                         @Html.DisplayNameFor(model => model.UseOwnMug)
                     </th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,9 @@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.UseOwnMug)
+                        </td>
+                        <td>
+                            <a asp-action="RepeatSelection" asp-route-sugar="@item.SpoonsOfSugar" asp-route-type="@item.Type" asp-route-ownMug="@item.UseOwnMug">Repeat</a>
                         </td>
                     </tr>
                 }
