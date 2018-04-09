@@ -1,0 +1,51 @@
+﻿@model IEnumerable<CoffeeModel>
+
+@{
+    ViewData["Title"] = "Coffee";
+}
+
+<div class="container">
+    <h1>Beverages</h1>
+    <a asp-action="Create" class="btn btn-primary">Create new beverage</a>
+
+    @if(Model.Any())
+    {
+        <hr>
+        <h3>Last beverages ordererd</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SpoonsOfSugar)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UseOwnMug)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SpoonsOfSugar)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UseOwnMug)
+                        </td>
+                        <td>
+                            <a asp-action="RepeatSelection" asp-route-sugar="@item.SpoonsOfSugar" asp-route-type="@item.Type" asp-route-ownMug="@item.UseOwnMug">Repeat</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+</div>

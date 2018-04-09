@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Interfaces\ICoffee.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Interfaces\obj\Interfaces.csproj.nuget.g.props" />
+    <None Remove="Interfaces\obj\Interfaces.csproj.nuget.g.targets" />
+    <None Remove="Interfaces\obj\project.assets.json" />
+    <None Remove="Interfaces\obj\Interfaces.csproj.nuget.cache" />
+  </ItemGroup>
+</Project>
